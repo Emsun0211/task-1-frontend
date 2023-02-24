@@ -18,10 +18,11 @@ form.addEventListener("submit", async (e) => {
 				body: JSON.stringify({ email, fname, lname, track, portfolio, github }),
 			}
 		);
-
+		alert("Registration successful");
 		const result = await res.json();
 		console.log(result);
 	} catch (error) {
+		alert("Something went wrong");
 		console.log(error);
 	}
 });
