@@ -1,4 +1,5 @@
 const form = document.getElementById("form");
+console.log(form);
 
 form.addEventListener("submit", async (e) => {
 	e.preventDefault();
@@ -9,11 +10,14 @@ form.addEventListener("submit", async (e) => {
 	const portfolio = document.getElementById("portfolio").value;
 	const github = document.getElementById("github").value;
 	try {
-		const res = await fetch("/send-message", {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ email, fname, lname, track, portfolio, github }),
-		});
+		const res = await fetch(
+			"https://task-1-backend.onrender.com/send-message",
+			{
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email, fname, lname, track, portfolio, github }),
+			}
+		);
 
 		const result = await res.json();
 		console.log(result);
